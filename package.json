@@ -1,0 +1,30 @@
+{
+  "name": "react-awesome",
+  "version": "1.0.0",
+  "description": "React awesome architecture, base in a custom implementation of clean, hexagonal and event-driven architectures",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soyjuanmacias/react-awesome.git"
+  },
+  "keywords": [
+    "react",
+    "awesome",
+    "architecture",
+    "boilerplate"
+  ],
+  "author": "Juan Antonio Macías®",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soyjuanmacias/react-awesome/issues"
+  },
+  "homepage": "https://github.com/soyjuanmacias/react-awesome#readme",
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "jest": "^29.3.1",
+    "prettier": "^2.8.3"
+  }
+}

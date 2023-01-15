@@ -3,8 +3,17 @@
   "version": "1.0.0",
   "description": "React awesome architecture, base in a custom implementation of clean, hexagonal and event-driven architectures",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "test"
+    "serve": "vite preview",
+    "build": "vite build",
+    "staging": "vite --mode staging",
+    "dev": "vite --mode dev",
+    "prod": "vite --mode prod",
+    "test": "test",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "analyze": "vite build --mode staging --report"
   },
   "repository": {
     "type": "git",
@@ -16,15 +25,23 @@
     "architecture",
     "boilerplate"
   ],
-  "author": "Juan Antonio Macías®",
+  "author": "Juan Antonio Macías ®",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/soyjuanmacias/react-awesome/issues"
   },
   "homepage": "https://github.com/soyjuanmacias/react-awesome#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react-swc": "^3.0.0",
     "eslint": "^8.32.0",
     "jest": "^29.3.1",
     "prettier": "^2.8.3"
+    "vite": "^4.0.0"
   }
 }

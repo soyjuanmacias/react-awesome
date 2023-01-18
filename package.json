@@ -2,7 +2,7 @@
   "name": "react-awesome",
   "version": "1.0.0",
   "description": "React awesome architecture, base in a custom implementation of clean, hexagonal and event-driven architectures",
-  "main": "index.js",
+  "main": "src/index.jsx",
   "type": "module",
   "scripts": {
     "serve": "vite preview",

@@ -7,16 +7,16 @@ import Login from './ui/pages/Login';
 
 const App = () => {
   return (
-    <Box h="full">
+    <Flex flexDir="column" h="100%">
       <Navbar />
       <Flex
-        h="full"
+        flex={1}
         flexDir="column"
         justify="center"
         align="center"
         textAlign="center"
         gap={10}
-        bgGradient={{ sm: 'linear(to-r, blue.600, purple.600)' }}
+        bgGradient={{ base: 'linear(to-r, blue.600, purple.600)' }}
       >
         <Routes>
           <Route path="login" element={<Login />} />
@@ -32,7 +32,7 @@ const App = () => {
           />
         </Routes>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 

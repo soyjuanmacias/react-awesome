@@ -1,7 +1,8 @@
 import logo from './assets/logo.svg';
 import { Box, Flex, Heading, Img } from '@chakra-ui/react';
-import { Navbar } from './ui/common/Navbar';
+import Navbar from './ui/common/Navbar';
 import { Route, Routes } from 'react-router';
+import Register from './ui/pages/Register';
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
       >
         <Routes>
           <Route path="login" element={<Heading>Login</Heading>} />
-          <Route path="register" element={<Heading>Register</Heading>} />
+          <Route path="register" element={<Register />} />
           <Route
             path="*"
             element={

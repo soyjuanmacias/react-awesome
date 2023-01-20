@@ -30,7 +30,7 @@ const links = [
   },
 ];
 
-export const Navbar = () => {
+const Navbar = () => {
   const isDesktop = useBreakpointValue({
     base: false,
     lg: true,
@@ -83,3 +83,5 @@ export const Navbar = () => {
     </Box>
   );
 };
+
+export default Navbar;

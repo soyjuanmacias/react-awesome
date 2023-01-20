@@ -3,6 +3,7 @@ import { Box, Flex, Heading, Img } from '@chakra-ui/react';
 import Navbar from './ui/common/Navbar';
 import { Route, Routes } from 'react-router';
 import Register from './ui/pages/Register';
+import Login from './ui/pages/Login';
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
         bgGradient={{ sm: 'linear(to-r, blue.600, purple.600)' }}
       >
         <Routes>
-          <Route path="login" element={<Heading>Login</Heading>} />
+          <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route
             path="*"

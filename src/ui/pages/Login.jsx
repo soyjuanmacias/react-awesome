@@ -16,12 +16,15 @@ import {
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
+import useAuthUseCases from '../../core/auth/domain/auth.usecases';
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
+  const { login } = useAuthUseCases();
 
   const submit = result => {
     console.log('result', result);
+    login(result);
   };
 
   return (

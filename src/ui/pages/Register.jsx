@@ -15,12 +15,15 @@ import {
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
+import useAuthUseCases from '../../core/auth/domain/auth.usecases';
 
 const Register = () => {
+  const { register: registerUseCase } = useAuthUseCases();
   const { register, handleSubmit } = useForm();
 
   const submit = result => {
     console.log('result', result);
+    registerUseCase(result);
   };
 
   return (
@@ -55,6 +58,12 @@ const Register = () => {
                   Name
                 </FormLabel>
                 <Input bg="gray.100" id="name" type="text" {...register('name')} focusBorderColor="primary.300" />
+              </FormControl>
+              <FormControl isRequired>
+                <FormLabel color="white" htmlFor="name">
+                  Apellido
+                </FormLabel>
+                <Input bg="gray.100" id="name" type="text" {...register('lastName')} focusBorderColor="primary.300" />
               </FormControl>
               <FormControl isRequired>
                 <FormLabel color="white" htmlFor="email">

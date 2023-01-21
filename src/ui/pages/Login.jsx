@@ -21,12 +21,7 @@ import useAuthUseCases from '../../core/auth/domain/auth.usecases';
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const { login } = useAuthUseCases();
-
-  const submit = result => {
-    console.log('result', result);
-    login(result);
-  };
-
+  
   return (
     <Container
       maxW="md"
@@ -35,7 +30,7 @@ const Login = () => {
         md: '8',
       }}
     >
-      <form onSubmit={handleSubmit(submit)}>
+      <form onSubmit={handleSubmit(login)}>
         <Stack spacing="8">
           <Stack spacing="6" align="center">
             <Img src={logo} />

@@ -9,7 +9,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(
+const ReactApp = (
   <React.StrictMode>
     <Provider store={store}>
       <Router>
@@ -18,5 +18,7 @@ root.render(
         </ChakraProvider>
       </Router>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
+
+root.render(ReactApp);

@@ -26,12 +26,12 @@ class HttpFactory {
     };
   }
 
-  request(path, options, data) {
+  request(path, options, data = {}) {
     const config = { url: this.url + path, data, ...this.setConfig(), ...options };
 
     return this.provider(config)
       .then(res => res.data)
-      .catch(error => console.log('Error en el axios', error.response.data));
+      .catch(error => console.log('[SERVER ERROR]: ', error.response.data.message));
     // TODO Crear Interceptor de errores siguiendo Interceptor Error;
   }
 
@@ -40,11 +40,11 @@ class HttpFactory {
   }
 
   post(path, data, options) {
-    return this.request(path, data, { method: 'post', ...options });
+    return this.request(path, { method: 'post', ...options }, data);
   }
 
   put(path, data, options) {
-    return this.request(path, data, { method: 'put', ...options });
+    return this.request(path, { method: 'put', ...options }, data);
   }
 
   delete(path, options) {

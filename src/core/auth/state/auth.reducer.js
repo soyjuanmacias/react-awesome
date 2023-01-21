@@ -9,9 +9,11 @@ export const authReducer = (state = INITIAL_STATE, action) => {
   const { type, payload: data } = action;
 
   switch (type) {
-    case SET_USER: () => ({ ...state, ...data });
+    case SET_USER:
+      return { ...state, ...data };
 
-    case ERROR: () => ({ ...state, ...data })
+    case ERROR:
+      return { ...state, ...data };
 
     default:
       return state;

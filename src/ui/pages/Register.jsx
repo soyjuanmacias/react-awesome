@@ -13,17 +13,19 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import useAuthUseCases from '../../core/auth/domain/auth.usecases';
+import useSpinner from '../../hooks/useSpinner';
 
 const Register = () => {
   const { register: registerUseCase } = useAuthUseCases();
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const { registerSpinner } = useSpinner();
 
-  const submit = result => {
-    console.log('result', result);
-    registerUseCase(result);
+  const submit = user => {
+    registerUseCase(user);
   };
 
   return (
@@ -88,7 +90,7 @@ const Register = () => {
               </FormControl>
             </Stack>
             <Stack spacing="2">
-              <Button type="submit" variant="solid">
+              <Button type="submit" variant="solid" isLoading={registerSpinner} loadingText="Creando cuenta...">
                 Crear cuenta
               </Button>
             </Stack>

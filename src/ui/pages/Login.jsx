@@ -18,12 +18,13 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import useAuthUseCases from '../../core/auth/domain/auth.usecases';
+import useSpinner from '../../hooks/useSpinner';
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
-  const { login } = useAuthUseCases();
-  const loading = useSelector(state => state.global.spinners.includes('login'));
-  
+  const { login } = useAuthUseCases();
+  const { loginSpinner } = useSpinner();
+
   return (
     <Container
       maxW="md"
@@ -77,7 +78,7 @@ const Login = () => {
               </Button>
             </HStack>
             <Stack spacing="2">
-              <Button type="submit" fontWeight="bold" variant="solid" isLoading={loading} loadingText="Accediendo">
+              <Button type="submit" fontWeight="bold" variant="solid" isLoading={loginSpinner} loadingText="Accediendo...">
                 Entrar
               </Button>
             </Stack>

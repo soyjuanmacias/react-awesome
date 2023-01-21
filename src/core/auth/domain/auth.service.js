@@ -1,16 +1,39 @@
-import { http } from "../../global/services";
+import { http } from '../../global/services';
+import { setUser } from '../state/auth.actions';
 
-const routes = {
-    login: '/auth/login',
-    register: '/auth/register',
-    session: '/auth/session',
-    status: '/auth/status',
-}
-
-export const loginService = async (dispatch, credentials) => {
-    const result = await http.post('/auth/login', credentials);
-    console.log('axios login result', result);
+const API = {
+  login: '/auth/login',
+  register: '/auth/register',
+  retrieveUser: '/auth/session',
+  status: '/auth/status',
 };
 
-export const sessionService = async (dispatch) => await http.get(routes.session);
+export const register = async newUser => {
+  try {
+    const user = await http.post(API.register, newUser, { spinner: 'register' });
+    setUser(user);
+  } catch (error) {
+    console.log('LOGIN SERVICE FETCH ERROR', error);
+    // TODO handle Error;
+  }
+};
 
+export const login = async credentials => {
+  try {
+    const user = await http.post(API.login, credentials, { spinner: 'login' });
+    setUser(user);
+  } catch (error) {
+    console.log('LOGIN SERVICE FETCH ERROR', error);
+    // TODO handle Error;
+  }
+};
+
+export const retrieveUser = async () => {
+  try {
+    return await http.get(API.retrieveUser, { spinner: 'retrieve-user' });
+  } catch (error) {
+    console.log(error);
+
+    // TODO: Handle Error
+  }
+};

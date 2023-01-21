@@ -1,25 +1,17 @@
-import { useDispatch } from 'react-redux';
-import { http } from '../../global/services';
-import { sessionService } from './auth.service';
-// import http from '../../common/services/http.service';
+import * as service from './auth.service';
 
-const useAuthUseCases = () => {
-  const dispatch = useDispatch();
+const authUseCases = () => {
+  const login = credentials => service.login(credentials);
 
-  const login = async credentials => loginService(dispatch, credentials);
+  const register = user => service.register(user);
 
-  const register = async credentials => {
-    const result = await http.post('/auth/register', credentials);
-    console.log('axios register result', result);
-  };
-
-  const getSession = () => sessionService(dispatch);
+  const retrieveUser = () => service.retrieveUser();
 
   return {
     login,
     register,
-    getSession,
+    retrieveUser,
   };
 };
 
-export default useAuthUseCases;
+export default authUseCases;

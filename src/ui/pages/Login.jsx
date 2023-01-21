@@ -14,6 +14,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import useAuthUseCases from '../../core/auth/domain/auth.usecases';
@@ -21,6 +22,7 @@ import useAuthUseCases from '../../core/auth/domain/auth.usecases';
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const { login } = useAuthUseCases();
+  const loading = useSelector(state => state.global.loading.includes('auth'));
   
   return (
     <Container
@@ -75,7 +77,7 @@ const Login = () => {
               </Button>
             </HStack>
             <Stack spacing="2">
-              <Button type="submit" variant="solid">
+              <Button type="submit" fontWeight="bold" variant="solid" isLoading={loading} loadingText="Accediendo">
                 Entrar
               </Button>
             </Stack>

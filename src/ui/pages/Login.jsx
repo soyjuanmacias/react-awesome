@@ -22,7 +22,7 @@ import useAuthUseCases from '../../core/auth/domain/auth.usecases';
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const { login } = useAuthUseCases();
-  const loading = useSelector(state => state.global.loading.includes('auth'));
+  const loading = useSelector(state => state.global.spinners.includes('login'));
   
   return (
     <Container

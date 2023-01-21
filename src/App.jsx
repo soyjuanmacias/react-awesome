@@ -8,10 +8,10 @@ import useAuthUseCases from './core/auth/domain/auth.usecases';
 import { useEffect } from 'react';
 
 const App = () => {
-  const { restoreSession } = useAuthUseCases();
+  const { retrieveUser } = useAuthUseCases();
 
   useEffect(() => {
-    restoreSession();
+    retrieveUser();
   }, []);
   return (
     <Flex flexDir="column" h="100%">

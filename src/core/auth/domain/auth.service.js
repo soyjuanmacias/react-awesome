@@ -30,7 +30,9 @@ export const login = async credentials => {
 
 export const retrieveUser = async () => {
   try {
-    return await http.get(API.retrieveUser, { spinner: 'retrieve-user' });
+    const user = await http.get(API.retrieveUser, { spinner: 'retrieveUser' });
+    if(user) console.log('USER', user);
+    else console.log('NO USER');
   } catch (error) {
     console.log(error);
 

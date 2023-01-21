@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { removeSpinner, startSpinner } from '../state/global.actions';
 
 const { MODE } = import.meta.env;
 
@@ -27,12 +28,20 @@ class HttpFactory {
   }
 
   request(path, options, data = {}) {
+    options.spinner && startSpinner(options.spinner);
+    
     const config = { url: this.url + path, data, ...this.setConfig(), ...options };
 
     return this.provider(config)
-      .then(res => res.data)
-      .catch(error => console.log('[SERVER ERROR]: ', error.response.data.message));
-    // TODO Crear Interceptor de errores siguiendo Interceptor Error;
+      .then(res => {
+        return res.data;
+      })
+      .catch(error => {
+        console.log('[SERVER ERROR]: ', error.response.data.message);
+      })
+      .finally(() => options.spinner && removeSpinner(options.spinner));
+
+    // TODO Crear Interceptor de errores siguiendo Interceptor Error pattern;
   }
 
   get(path, options) {

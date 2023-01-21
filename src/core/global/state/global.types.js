@@ -1,1 +1,2 @@
-export const LOADING = 'LOADING';
+export const ADD_SPINNER = 'ADD_SPINNER';
+export const REMOVE_SPINNER = 'REMOVE_SPINNER';

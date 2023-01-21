@@ -4,8 +4,18 @@ import Navbar from './ui/common/Navbar';
 import { Route, Routes } from 'react-router';
 import Register from './ui/pages/Register';
 import Login from './ui/pages/Login';
+import useAuthUseCases from './core/auth/domain/auth.usecases';
+import { useEffect } from 'react';
 
 const App = () => {
+  const { getSession } = useAuthUseCases();
+
+  useEffect(() => {
+    const request = async () => {
+      console.log(await getSession());
+    }
+    request();
+  }, []);
   return (
     <Flex flexDir="column" h="100%">
       <Navbar />

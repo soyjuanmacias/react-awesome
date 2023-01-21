@@ -1,2 +1,2 @@
-export const ADD_SPINNER = 'ADD_SPINNER';
+export const START_SPINNER = 'START_SPINNER';
 export const REMOVE_SPINNER = 'REMOVE_SPINNER';

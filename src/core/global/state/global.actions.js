@@ -1,10 +1,10 @@
-import { ADD_SPINNER, REMOVE_SPINNER } from './global.types';
+import { START_SPINNER, REMOVE_SPINNER } from './global.types';
 import { store } from '../../../redux/store';
 const { dispatch } = store;
 
 export const startSpinner = spinner =>
   dispatch({
-    type: ADD_SPINNER,
+    type: START_SPINNER,
     payload: { loading: true, spinner },
   });
 
